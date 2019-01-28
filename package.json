@@ -1,0 +1,26 @@
+{
+  "name": "the-hunters-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot for The Hunters Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord-js",
+    "discord-bot",
+    "discord",
+    "the-hunters"
+  ],
+  "author": "Jyguy",
+  "license": "ISC",
+  "dependencies": {
+    "array-utility": "0.0.2",
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^6.2.0",
+    "fs": "0.0.1-security",
+    "moment": "^2.24.0",
+    "pg": "^7.8.0",
+    "request": "^2.88.0"
+  }
+}
