@@ -16,7 +16,8 @@ module.exports = async (Client, message, args) => {
     const embed = new Client.Discord.MessageEmbed()
       .setTitle('Command List')
       .setColor(0x00FF00)
-      .setDescription(Client.commandsList.map(command => Client.config.prefix + command).join('\n'));
+      .setDescription(Client.commandsList.map(command => Client.config.prefix + command).join('\n'))
+      .setFooter(`P.S. You can get more information about a command using ${Client.config.prefix}help [Command].`);
 
     return message.author.send(embed).then(() => message.channel.send(`${message.author.tag}, Check your DMs!`)).catch(() => {
       if (message.channel.permissionsFor(Client.bot.user).has('EMBED_LINKS')) return message.channel.send(embed);
