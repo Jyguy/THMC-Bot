@@ -33,11 +33,6 @@ for (let i = 0; i < Client.commandsList.length; i++) { // Creates a loop
 Client.commandsList = Client.commandsList.map(cmd => cmd.slice(0, -3));
 
 Client.bot.on('ready', async () => {
-  /* sql.query('CREATE TABLE IF NOT EXISTS prefix (customprefix TEXT)');
-  sql.query('CREATE TABLE IF NOT EXISTS scores (points INTEGER, userid TEXT, level INTEGER)');
-  sql.query('CREATE TABLE IF NOT EXISTS warnings (reason TEXT, userid TEXT)');
-  */
-
   const row = (await sql.query('SELECT customprefix FROM prefix')).rows[0];
   Client.config.prefix = row ? row.customprefix : 'h!';
 
@@ -73,7 +68,11 @@ Client.bot.on('guildMemberAdd', member => {
   const channel = member.guild.channels.get('516525421018480649');
   if (!channel || !channel.permissionsFor(Client.bot.user).has(['SEND_MESSAGES', 'VIEW_CHANNEL', 'EMBED_LINKS'])) return;
 
-  return channel.send(`Welcome to TheHuntersMC, ${member}!`);
+  const embed = new Discord.MessageEmbed()
+    .setColor(0x00FF00)
+    .setTitle('A new member joined!')
+    .setDescription(`Welcome to ${member.guild.name}, ${member}!`);
+  return channel.send(embed);
 });
 
 Client.bot.on('guildMemberRemove', () => {
