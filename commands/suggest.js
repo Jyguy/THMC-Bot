@@ -17,7 +17,7 @@ module.exports = async (Client, message, args) => {
   await msg.react('✅');
   await msg.react('❌');
 
-  return message.react('✅');
+  if (message.channel.permissionsFor(Client.bot.user).has('MANAGE_MESSAGES')) return message.delete();
 };
 
 module.exports.help = {
