@@ -14,9 +14,10 @@ exports.run = async (client, message, args) => {
   const suggestion = args.slice(1).join(' ');
 
   const embed = new client.Discord.MessageEmbed()
-    .setTitle(`New Suggestion by ${message.author.tag}`)
     .setDescription(suggestion)
-    .setColor(0x00FF00);
+    .setColor(0x00FF00)
+    .setFooter(`Suggested by ${message.author.tag}`, message.author.displayAvatarURL())
+    .setTimestamp();
 
   const msg = await channel.send(embed);
   await msg.react('✅');
