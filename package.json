@@ -1,0 +1,15 @@
+{
+  "name": "new-thmc-bot",
+  "version": "0.0.0",
+  "description": "New THMC Bot",
+  "main": "index.js",
+  "author": {
+    "name": "Jyguy (Spiget)"
+  },
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^6.2.0",
+    "fs": "0.0.1-security",
+    "pg": "^7.8.1"
+  }
+}
