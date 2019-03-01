@@ -1,9 +1,15 @@
-module.exports = (Client, message, args) => {
-  return message.channel.send(`:stopwatch: Ping: \`${Math.round(Client.bot.ws.ping * 100) / 100}ms\``);
+'use strict';
+
+/**
+ * @param {import('discord.js').Client} client
+ * @param {import('discord.js').Message} message
+ * @param {Array<String>} args
+ */
+exports.run = (client, message, args) => {
+  return message.channel.send(`Pong! :heartbeat: \`${Math.round(client.ws.ping)}ms\``).then(m => m.edit(`${m.content} :stopwatch: \`${Math.round(Date.now() - m.createdTimestamp)}ms\``));
 };
 
-module.exports.help = {
-  name: 'ping',
-  desc: 'Shows the ping of the bot!',
+exports.help = {
+  desc: 'Outputs the ping of the bot.',
   usage: 'ping'
 };

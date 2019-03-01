@@ -1,3 +1,0 @@
-﻿# New THMC Bot
-
-
