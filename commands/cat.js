@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   if (!message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) return message.reply(':x: I am missing the required permission `Embed Links` in this channel.');
 
   let res = await fetch('https://api.thecatapi.com/v1/images/search');
-  res = res.json();
+  res = await res.json();
 
   const url = res[0].url;
   const embed = new client.Discord.MessageEmbed()

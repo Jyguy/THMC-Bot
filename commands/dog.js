@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   if (!message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) return message.reply(':x: I am missing the required permission `Embed Links` in this channel.');
 
   let res = await fetch('https://dog.ceo/api/breeds/image/random');
-  res = res.json();
+  res = await res.json();
 
   if (res.status !== 'success') return message.channel.send(':x: Looks like the API is down, try again later.');
 
