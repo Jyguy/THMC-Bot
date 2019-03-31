@@ -1,15 +1,16 @@
 'use strict';
 
 /**
- * @param {import('discord.js').Client} client
+ * @param {import('../structures/client.js')} client
  */
 exports.run = (client) => {
-  return client.on('guildMemberAdd', member => {
+  return client.bot.on('guildMemberAdd', member => {
     if (member.user instanceof client.Discord.ClientUser) return;
 
+    /** @type {import('discord.js').TextChannel} */
     const channel = member.guild.channels.find(c => c.type === 'text' && c.id === '516525421018480649');
     if (!channel) return;
-    if (!channel.permissionsFor(client.user).has(['VIEW_CHANNEL', 'SEND_MESSAGES', 'EMBED_LINKS'])) return;
+    if (!channel.permissionsFor(member.guild.me).has(['VIEW_CHANNEL', 'SEND_MESSAGES', 'EMBED_LINKS'])) return;
 
     const embed = new client.Discord.MessageEmbed()
       .setTitle('A new member has joined!')

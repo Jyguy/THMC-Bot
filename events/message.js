@@ -1,10 +1,10 @@
 'use strict';
 
 /**
- * @param {import('discord.js').Client} client
+ * @param {import('../structures/client.js')} client
  */
 exports.run = (client) => {
-  return client.on('message', message => {
+  return client.bot.on('message', message => {
     if (message.author.bot) return;
     if (!message.guild || !message.guild.available) return;
     if (!message.channel.permissionsFor(message.guild.me).has(['VIEW_CHANNEL', 'SEND_MESSAGES'])) return;

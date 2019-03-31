@@ -3,15 +3,14 @@
 const fetch = require('node-fetch');
 
 /**
- * @param {import('discord.js').Client} client
+ * @param {import('../structures/client.js')} client
  * @param {import('discord.js').Message} message
  * @param {String[]} args
  */
 exports.run = async (client, message, args) => {
   if (!message.channel.permissionsFor(message.guild.me).has('EMBED_LINKS')) return message.reply(':x: I am missing the required permission `Embed Links` in this channel.');
 
-  let res = await fetch('https://api.thecatapi.com/v1/images/search');
-  res = await res.json();
+  const res = await fetch('https://api.thecatapi.com/v1/images/search').then(res => res.json());
 
   const url = res[0].url;
   const embed = new client.Discord.MessageEmbed()
