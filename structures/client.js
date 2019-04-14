@@ -24,6 +24,7 @@ const bot = new Discord.Client({
 
 /**
  * @typedef {Object} configObj
+ * @prop {String} ip
  * @prop {String} prefix
  */
 
