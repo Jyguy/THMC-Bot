@@ -59,7 +59,7 @@ const client = {
 };
 
 client.cmdList.forEach(cmd => client.commands.set(cmd, require(`../commands/${cmd}.js`)));
-client.eventList.forEach(event => require(`../events/${event}.js`).run(client));
 client.fnList.forEach(fn => client.functions.set(fn, require(`../functions/${fn}.js`)));
+client.eventList.forEach(event => client.bot.on(event, (...args) => require(`../events/${event}.js`).run(client, ...args)));
 
 module.exports = client;
