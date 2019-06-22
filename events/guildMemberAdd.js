@@ -6,7 +6,7 @@
  */
 exports.run = (client, member) => {
   if (member.user instanceof client.Discord.ClientUser) return;
-  if (Date.now() - member.user.createdTimestamp < 1000 * 60 * 60 * 24) return member.kick('Account younger than 1 day');
+  if (Date.now() - member.user.createdTimestamp < 1000 * 60 * 60 * 24 * 7) return member.kick('Account younger than 7 days');
 
   /** @type {import('discord.js').TextChannel} */
   const channel = member.guild.channels.find(c => c.type === 'text' && c.id === '516525421018480649');
