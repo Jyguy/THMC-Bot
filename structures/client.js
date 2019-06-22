@@ -37,6 +37,7 @@ const bot = new Discord.Client({
  * @prop {Discord} Discord
  * @prop {Discord.Util.escapeMarkdown} escMD
  * @prop {String[]} eventList
+ * @prop {import('node-fetch')} fetch
  * @prop {String[]} fnList
  * @prop {Discord.Collection<String, Object>} functions
  * @prop {Discord.Util.splitMessage} splitMessage
@@ -52,6 +53,7 @@ const client = {
   Discord: Discord,
   escMD: Discord.Util.escapeMarkdown,
   eventList: fs.readdirSync('./events').filter(f => f.endsWith('.js')).map(f => f.slice(0, -3)),
+  fetch: require('node-fetch'),
   fnList: fs.readdirSync('./functions').filter(f => f.endsWith('.js')).map(f => f.slice(0, -3)),
   functions: new Discord.Collection(),
   splitMessage: Discord.Util.splitMessage,
