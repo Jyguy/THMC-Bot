@@ -6,7 +6,7 @@
  * @param {String[]} args
  */
 module.exports.run = async (client, message, args) => {
-  const body = await client.fetch('https://canihazdadjoke.com/', {
+  const body = await client.fetch('https://icanhazdadjoke.com/', {
     headers: {
       'Accept': 'application/json',
       'User-Agent': 'THMC Bot: https://github.com/Jyguy/THMC-Bot'
